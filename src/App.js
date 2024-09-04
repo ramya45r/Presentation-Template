@@ -7,10 +7,15 @@ import ChartSlide from './components/ChartSlide';
 import CodeBlockSlide from './components/CodeBlockSlide';
 import PythonCompilerSlide from './components/PythonCompilerSlide';
 import ClosingSlide from './components/ClosingSlide';
+import image1 from './images/editing-laptop-2048px-231551-2x1-1.webp'
 import './App.css';
 const slides = [
   <OpeningSlide />,
-  <ImageSlide />,
+  <ImageSlide imageUrls={[
+    image1,
+    image1,
+    image1
+  ]} />,
   <ChartSlide />,
   <CodeBlockSlide code={`const greeting = "Hello, World!";\nconsole.log(greeting);`} />,
   <PythonCompilerSlide />,
@@ -37,13 +42,17 @@ function App() {
   return (
     <div className={`App ${isDarkMode ? "dark" : "light"}`}>
       <Header toggleTheme={toggleTheme} />
+      <div className='mainslide'>
       <div className="slide-container">{slides[currentSlide]}</div>
+      
       <button onClick={prevSlide} disabled={currentSlide === 0}>
         Previous
       </button>
       <button onClick={nextSlide} disabled={currentSlide === slides.length - 1}>
         Next
       </button>
+
+      </div>
       <Footer />
     </div>
   );

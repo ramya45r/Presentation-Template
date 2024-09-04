@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Chart, registerables } from 'chart.js';
 import 'chart.js/auto';
+import '../App.css';
 
 Chart.register(...registerables);
 
@@ -21,7 +22,7 @@ const ChartSlide = () => {
         datasets: [
           {
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12, 10, 3, 5, 2, 3],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -46,12 +47,12 @@ const ChartSlide = () => {
 
     return () => {
       if (chartInstanceRef.current) {
-        chartInstanceRef.current.destroy(); // Clean up the chart instance on unmount
+        chartInstanceRef.current.destroy(); 
       }
     };
   }, []);
 
-  return <canvas ref={chartRef} />;
+  return <canvas ref={chartRef}  className="chart-canvas" />;
 };
 
 export default ChartSlide;

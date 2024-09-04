@@ -17,7 +17,6 @@ button {
   cursor: pointer;
 }
 
-/* Light mode styles */
 .App.light {
   background-color: #ffffff;
   color: #000000;
@@ -32,10 +31,9 @@ button {
   background-color: #0056b3;
 }
 
-/* Dark mode styles */
 .App.dark {
   background-color: #000000;
-  color: #ffffff;
+  /* color: #ffffff; */
 }
 
 .App.dark button {
@@ -45,4 +43,28 @@ button {
 
 .App.dark button:hover {
   background-color: #1e7e34;
+}
+.chart-canvas {
+  width: 400px; 
+  height: 200px; 
+}
+.mainslide {
+  width: 800px;
+  height: 500px; 
+  justify-content: center; 
+  align-items: center; 
+}
+.image-slide {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.slide-image {
+  width: 300px; 
+  height: auto;
+  margin: 5px; 
+  object-fit: cover; 
 }

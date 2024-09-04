@@ -1,5 +1,5 @@
 import React from 'react';
-// import './Slide.css';
+import './Slide.css';
 
 const Slide = ({ children, className }) => (
   <div className={`slide ${className}`}>
