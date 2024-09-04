@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Slide from './Slide';
+import logo from '../images/1724751059275004_2007895434.png'
 
 const loadBrython = (callback) => {
   const script = document.createElement('script');
@@ -21,12 +22,10 @@ const runPython = (code, outputRef) => {
   }
 
   try {
-    // Create a new script element for the Python code
     const script = document.createElement('script');
     script.type = 'text/python';
     script.text = code;
 
-    // Capture output from Brython
     const oldConsoleLog = console.log;
     console.log = (message) => {
       if (outputRef.current) {
@@ -34,13 +33,11 @@ const runPython = (code, outputRef) => {
       }
     };
 
-    // Append the script to the body to be executed
     document.body.appendChild(script);
 
-    // Clean up
     setTimeout(() => {
       document.body.removeChild(script);
-      console.log = oldConsoleLog; // Restore original console.log
+      console.log = oldConsoleLog; 
     }, 1000);
   } catch (err) {
     console.error('Error running Python code:', err);
@@ -58,7 +55,7 @@ const PythonCompilerSlide = () => {
     loadBrython(() => {
       console.log('Brython loaded');
       setBrythonLoaded(true);
-      window.brython(); // Initialize Brython
+      window.brython(); 
     });
   }, []);
 
@@ -79,10 +76,14 @@ const PythonCompilerSlide = () => {
 
   return (
     <Slide className="python-compiler-slide">
+
       <textarea id="python-code" defaultValue="print(1 + 1)" />
       <button onClick={handleRunClick}>Run Python Code</button>
       <pre id="python-output" ref={outputRef}></pre>
       <canvas id="mycanvas"></canvas>
+             <img src={logo} alt="Demo Logo" className="demo-logo" />
+      <img src={logo} alt="Watermark" className="watermark" />
+
     </Slide>
   );
 };

@@ -14,7 +14,7 @@ const slides = [
   <ImageSlide imageUrls={[
     image1,
     image1,
-    image1
+  
   ]} />,
   <ChartSlide />,
   <CodeBlockSlide code={`const greeting = "Hello, World!";\nconsole.log(greeting);`} />,

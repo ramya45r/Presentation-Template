@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from 'react';
 import { Chart, registerables } from 'chart.js';
 import 'chart.js/auto';
 import '../App.css';
+import logo from '../images/1724751059275004_2007895434.png'
+import Slide from './Slide';
 
 Chart.register(...registerables);
 
@@ -11,7 +13,7 @@ const ChartSlide = () => {
 
   useEffect(() => {
     if (chartInstanceRef.current) {
-      chartInstanceRef.current.destroy(); // Destroy previous chart instance
+      chartInstanceRef.current.destroy();
     }
 
     const ctx = chartRef.current.getContext('2d');
@@ -52,7 +54,15 @@ const ChartSlide = () => {
     };
   }, []);
 
-  return <canvas ref={chartRef}  className="chart-canvas" />;
+  return <>
+<Slide className="chartslide">
+
+  <canvas ref={chartRef}  className="chart-canvas" />
+       <img src={logo} alt="Demo Logo" className="demo-logo" />
+  <img src={logo} alt="Watermark" className="watermark" />
+</Slide>
+
+  </>
 };
 
 export default ChartSlide;
