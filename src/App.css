@@ -1,0 +1,48 @@
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  font-family: Arial, sans-serif;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Light mode styles */
+.App.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.App.light button {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.App.light button:hover {
+  background-color: #0056b3;
+}
+
+/* Dark mode styles */
+.App.dark {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.App.dark button {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+.App.dark button:hover {
+  background-color: #1e7e34;
+}

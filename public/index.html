@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Include Skulpt scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/1.1.0/skulpt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/1.1.0/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
+
+    <!-- Inline script to run Python code -->
+    <script>
+      function initializeSkulpt() {
+        Sk.configure({
+          output: text => console.log(text)
+        });
+        Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, "print('Hello, World!')", true))
+          .then(() => console.log("success"))
+          .catch(err => console.error(err));
+      }
+
+      // Check if Skulpt is loaded
+      function checkSkulpt() {
+        if (window.Sk) {
+          initializeSkulpt();
+        } else {
+          setTimeout(checkSkulpt, 100); // Check again in 100ms
+        }
+      }
+
+      // Start checking for Skulpt
+      checkSkulpt();
+    </script>
+
+    <div id="root"></div>
+  </body>
+</html>
